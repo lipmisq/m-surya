@@ -21,7 +21,8 @@ jobs:
           sudo apt-get install binutils-aarch64-linux-gnu cpio -y
           export KBUILD_BUILD_USER=nobody
           export KBUILD_BUILD_HOST=android-build
-          source build.sh
+          #source build.sh
+          source b.sh
           echo "ZIPNAME=${ZIPNAME}" >> $GITHUB_ENV
 
       - name: Setup build date
