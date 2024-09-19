@@ -34,6 +34,10 @@ fi
 if [[ $1 = "-c" || $1 = "--clean" ]]; then
 	rm -rf out
 fi
+#echo 'source "utils/Kconfig"' >> ./Kconfig
+patch -p1 < Cgroup.patch
+bash SGconfig.sh arch/arm64/configs/vendor/surya-perf_defconfig -w
+#echo "CONFIG_DOCKER=
 
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
