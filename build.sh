@@ -18,12 +18,20 @@ fi
 
 export PATH="$TC_DIR/bin:$PATH"
 
+#if ! [ -d "$TC_DIR" ]; then
+#	echo "AOSP clang not found! Cloning to $TC_DIR..."
+#	if ! git clone --depth=1 -b 17 https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git "$TC_DIR"; then
+#		echo "Cloning failed! Aborting..."
+#		exit 1
+#	fi
+#fi
+
 if ! [ -d "$TC_DIR" ]; then
-	echo "AOSP clang not found! Cloning to $TC_DIR..."
-	if ! git clone --depth=1 -b 17 https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone.git "$TC_DIR"; then
-		echo "Cloning failed! Aborting..."
-		exit 1
-	fi
+	echo "Neutron Clang not found! Downloading to $TC_DIR..."
+	mkdir -p "$TC_DIR" && cd "$TC_DIR"
+	curl -LO "https://raw.githubusercontent.com/Neutron-Toolchains/antman/main/antman"
+	bash ./antman -S=09092023
+	cd ../..
 fi
 
 if [[ $1 = "-r" || $1 = "--regen" ]]; then
