@@ -48,7 +48,7 @@ fi
 patch -p1 < Cgroup.patch
 bash SGconfig.sh arch/arm64/configs/vendor/surya-perf_defconfig -w
 #echo "CONFIG_DOCKER=
-
+sudo apt install nano bc bison ca-certificates curl flex gcc git libc6-dev libssl-dev openssl python-is-python3 ssh wget zip zstd sudo make clang gcc-arm-linux-gnueabi software-properties-common build-essential libarchive-tools gcc-aarch64-linux-gnu build-essential libssl-dev libffi-dev libncurses5-dev zlib1g zlib1g-dev libreadline-dev libbz2-dev libsqlite3-dev make gcc pigz python2 python3 -y
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
 
