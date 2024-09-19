@@ -8,6 +8,8 @@ ZIPNAME="QuicksilveR-KSU-$(date '+%Y%m%d-%H%M').zip"
 TC_DIR="$(pwd)/tc/clang-r498229"
 AK3_DIR="$(pwd)/android/AnyKernel3"
 DEFCONFIG="vendor/surya-perf_defconfig"
+export CXX=aarch64-linux-gnu-g++
+export CC=aarch64-linux-gnu-gcc
 
 if test -z "$(git rev-parse --show-cdup 2>/dev/null)" &&
    head=$(git rev-parse --verify HEAD 2>/dev/null); then
